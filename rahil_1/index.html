@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rahil Baig | Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --card-bg: #161b22;
+            --accent-green: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --nav-bg: rgba(11, 14, 20, 0.95);
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            background: var(--nav-bg);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-green); }
+
+        .container { width: 90%; max-width: 800px; padding-top: 100px; }
+
+        header {
+            border-left: 4px solid var(--accent-green);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 { margin: 0; font-size: 2.2rem; }
+        .meta { color: var(--text-dim); font-family: monospace; font-size: 0.9rem; }
+
+        section { margin-bottom: 60px; scroll-margin-top: 100px; }
+        h2 { border-bottom: 1px solid #30363d; padding-bottom: 10px; font-size: 1.5rem; color: var(--accent-green); }
+
+        /* ABOUT SECTION */
+        .about-box {
+            line-height: 1.7;
+            color: var(--text-dim);
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 2px solid var(--accent-green);
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .skill-unit { margin-bottom: 18px; }
+        .label-row { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+        .bar-bg { background: #1e293b; height: 8px; border-radius: 4px; overflow: hidden; }
+        .bar-fill { 
+            background: var(--accent-green); 
+            height: 100%; 
+            width: 0%; 
+            transition: width 2s ease-out; 
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* PROJECT CARDS */
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .project-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project-card:hover { 
+            border-color: var(--accent-green); 
+            transform: translateY(-5px); 
+            background: #1c2128;
+        }
+        .project-card h3 { margin: 0; font-size: 1.1rem; color: var(--accent-green); }
+        .project-card p { font-size: 0.85rem; color: var(--text-dim); margin: 10px 0; }
+        .github-hint { font-size: 0.75rem; font-weight: bold; color: var(--accent-green); margin-top: auto; }
+
+        /* CONTACT SECTION */
+        .contact-box { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border: 1px solid var(--accent-glow); 
+        }
+        form { display: flex; flex-direction: column; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        label { color: var(--accent-green); font-weight: bold; font-size: 0.9rem; }
+        input { 
+            padding: 12px; 
+            background: var(--bg-color); 
+            border: 1px solid rgba(128, 128, 128, 0.3); 
+            border-radius: 8px; 
+            color: var(--text-main); 
+            outline: none; 
+        }
+        input:focus { border-color: var(--accent-green); }
+        .submit-btn { 
+            padding: 12px; 
+            background: var(--accent-green); 
+            color: #000; 
+            border: none; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+
+        @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div style="font-weight: 800; color: var(--accent-green);">RB.</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Rahil Baig</h1>
+            <div class="meta">Roll No: 2541002 | FYIT Student</div>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-box">
+                I'm <strong>Rahil Baig</strong>, an IT student specializing in front-end development. I enjoy building structured and efficient applications using <strong>HTML5, CSS3, and JavaScript</strong>.
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container" id="skills-list">
+                </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <a href="https://github.com/Rahil132/PORTFOLIO/blob/c02d0f4984081da9e0a5dc9e4db7a63c7745c4bf/hospitalsys.cpp" class="project-card" target="_blank">
+                    <div>
+                        <h3>Hospital Management System</h3>
+                        <p>A C++ based system to manage patient records, doctor schedules, and hospital billing.</p>
+                    </div>
+                    <span class="github-hint">View on GitHub ↗</span>
+                </a>
+
+                <a href="https://github.com/Rahil132/PORTFOLIO/blob/c02d0f4984081da9e0a5dc9e4db7a63c7745c4bf/moviesys.cpp" class="project-card" target="_blank">
+                    <div>
+                        <h3>Movie Booking System</h3>
+                        <p>An application designed to handle theater seat selection and ticket reservations.</p>
+                    </div>
+                    <span class="github-hint">View on GitHub ↗</span>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-box">
+                <h2>Let's Connect</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="user-email" placeholder="rahil@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="user-phone" placeholder="+91 00000 00000" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Information</button>
+                </form>
+                <p id="response-msg" style="text-align: center; margin-top: 20px; color: var(--accent-green);"></p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        async function loadSkills() {
+            const list = document.getElementById('skills-list');
+            let data;
+            try {
+                const response = await fetch('skills.json');
+                if (!response.ok) throw new Error();
+                data = await response.json();
+            } catch (error) {
+                // Fallback separated data
+                data = [
+                    { "name": "HTML5", "level": "95%" },
+                    { "name": "CSS3", "level": "90%" },
+                    { "name": "JavaScript", "level": "85%" }
+                ];
+            }
+            data.forEach(item => {
+                list.innerHTML += `
+                    <div class="skill-unit">
+                        <div class="label-row"><span>${item.name}</span><span>${item.level}</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-width="${item.level}"></div></div>
+                    </div>`;
+            });
+            setTimeout(() => {
+                document.querySelectorAll('.bar-fill').forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-width');
+                });
+            }, 300);
+        }
+
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('user-email').value;
+            document.getElementById('response-msg').innerText = "Success! Rahil will contact you at " + email;
+            form.reset();
+        });
+
+        window.onload = loadSkills;
+    </script>
+</body>
+</html>
